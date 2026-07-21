@@ -1,0 +1,29 @@
+# 数据准备说明
+
+## 数据来源
+
+本项目道路和建筑数据来自在线地图矢量数据服务。公开仓库不包含原始请求地址、访问凭证、网页端提取脚本及完整原始数据。
+
+仓库中的样例数据仅用于演示道路几何清洗、质量验证和基础拓扑构建流程。
+
+## 完整项目的数据处理流程
+
+原始道路数据
+→ ArcGIS Pro JSON 转要素
+→ Integrate（XY Tolerance = 0.5 m）
+→ Dissolve（不创建 multipart features）
+→ 投影至 EPSG:4547
+→ 转换为 Parquet
+→ Python 分网格道路清洗
+→ 质量验证
+→ 基础节点—边拓扑输出
+
+## 公开样例的起点
+
+公开 Notebook 从经过 ArcGIS Pro 基础预处理的道路数据开始运行。
+
+因此：
+
+- `streets_before_sample.parquet` 不是最初的原始道路数据；
+- 它已经完成格式转换、0.5 m Integrate 和 Dissolve；
+- Python 阶段主要处理道路冗余、近邻节点、短线、缺口、建筑穿越和跨网格拼接问题。
