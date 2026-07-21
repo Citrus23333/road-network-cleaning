@@ -1,0 +1,2 @@
+﻿region_id,input_file,input_feature_count,missing_geometry_count,empty_geometry_count,duplicate_geometry_count,network_input_line_count,network_input_length_km,topology_node_count,topology_edge_count,degree1_node_count,degree3_node_count,degree4plus_node_count,connected_component_count,largest_component_node_share
+0,/home/citrus/urban_taxonomy-main/example/streets/streets/streets_0.parquet,4090,0,0,0,4090,261.96720265786826,3202,4090,877,2018,307,16,0.9868831980012492
